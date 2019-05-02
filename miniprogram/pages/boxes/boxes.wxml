@@ -1,0 +1,4 @@
+<!--pages/box/boxes.wxml-->
+<view>
+    <search-box></search-box>
+</view>

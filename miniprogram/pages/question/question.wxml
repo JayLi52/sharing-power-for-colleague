@@ -1,0 +1,13 @@
+<view class="page">
+    <view bindtap="tapLists">
+        <view wx:for="{{lists}}" data-index="{{index}}">
+            <view class="nav-son" data-index="{{index}}">
+                <view data-index="{{index}}">{{item.title}}</view>
+                <image src='{{item.imgUrl}}' data-index="{{index}}"></image>
+            </view>
+            <view class="temp {{item.show ? 'slidown' : 'slidup'}}">
+                {{item.content}}
+            </view>
+        </view>
+    </view>
+</view>

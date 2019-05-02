@@ -1,0 +1,25 @@
+/* pages/search/search.wxss */
+.search-history, .search-recommend {
+    color: rgb(133, 128, 128);
+    font-size: 26rpx;
+    margin-top: 30rpx;
+}
+
+.search-history > text, .search-recommend > text {
+    margin: 0 0 20rpx 30rpx;
+    display: inline-block;
+}
+
+.search-recommend-item, .search-history-item {
+    background: #ccc;
+    color: #000;
+    font-size: 26rpx;
+    margin: 4rpx 6rpx;
+    padding: 4rpx 6rpx;
+    border-radius: 6rpx;
+}
+.rubbish {
+  background: url(../../img/q.png) center / 100% no-repeat;
+  width: 50rpx;
+  height: 50rpx;
+}

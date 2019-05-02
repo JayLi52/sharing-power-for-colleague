@@ -1,0 +1,54 @@
+<!--index.wxml-->
+<view class="container-layout">
+  <view class="top">
+    <view class="top-user-avatar" bindtap="goPersonal">
+      <image class="top-user-avatar-img" src="{{userInfo.avatarUrl}}"></image>
+    </view>
+    <input class="top-search" placeholder="酒店/地址/商圈" bindtap="goSearch" disabled></input>
+    <view class="top-menu" bindtap="goBoxes">
+      <image class="top-menu-img" src="../../img/menu.png"></image>
+    </view>
+  </view>
+  <!--地图-->
+  <view class='map-wrapper' style='height:{{mapHeight}}'>
+    <map class='map' id='myMap' longitude="{{longitude}}" latitude="{{latitude}}" scale="{{scale}}" show-location="true" markers="{{markers}}" bindmarkertap="bindMakertap" bindtap='bindMapTap'>
+    </map>
+    <!--定位当前位置-->
+    <cover-view class='cover-layout cover-layout-self-location' bindtap='selfLocationClick'>
+      <cover-image class='self-location' src='../../img/self-location.png'></cover-image>
+    </cover-view>
+    <!-- 扫一扫 -->
+    <cover-view class='cover-layout cover-layout-rich-scan' bindtap='richScan'>
+      <cover-image class='rich-scan' src='../../img/rich-scan.png'></cover-image>
+    </cover-view>
+    <!-- 客服 -->
+    <cover-view class='cover-layout cover-layout-custom-service' bindtap='customService'>
+      <cover-image class='custom-service' src='../../img/custom-service.png'></cover-image>
+    </cover-view>
+    <!-- 充电柜定位点详细信息 -->
+    <cover-view class="charge-box-detail {{isShow ? ' show-detail' : ''}}">
+      <cover-view class="charge-box-detail-messages">
+        <cover-view class="charge-box-detail-message">
+          <cover-image class="icon" src="../../img/location.png"></cover-image>
+          <cover-view class="text">{{item.name}}</cover-view>
+        </cover-view>
+        <cover-view class="charge-box-detail-message">
+          <cover-image class="icon" src="../../img/fly.png"></cover-image>
+          <cover-view class="text">{{item.distance}} | {{item.detail}}</cover-view>
+        </cover-view>
+        <cover-view class="charge-box-detail-message">
+          <cover-image class="icon" src="../../img/box.png"></cover-image>
+          <cover-view class="text">
+            <cover-view class="num">{{item.borrow}}</cover-view>
+            台可借 |
+            <cover-view class="num" style="padding-left: 10rpx;">{{item.returnNum}}</cover-view>
+            台待还</cover-view>
+        </cover-view>
+      </cover-view>
+      <cover-view class="go-there" bindtap="tapGoThere">
+        <cover-image src="../../img/gothere.png"></cover-image>
+      </cover-view>
+    </cover-view>
+  </view>
+
+</view>

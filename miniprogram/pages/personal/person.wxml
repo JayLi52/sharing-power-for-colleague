@@ -1,0 +1,27 @@
+<view class="personal-container">
+    <view class="userinfo">
+        <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称
+        </button>
+        <block wx:else>
+            <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+            <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+        </block>
+    </view>
+    <view class="person-messages">
+        <view class="my-tickets message">
+            <image src="../../img/ticket.png"></image>
+            <text>我的订单</text>
+            <image src="../../img/arrow.png"></image>
+        </view>
+        <view class="my-money message">
+            <image src="../../img/money.png"></image>
+            <text>我的钱包</text>
+            <image src="../../img/arrow.png"></image>
+        </view>
+        <view class="service-online message">
+            <image src="../../img/custom-service.png"></image>
+            <text>在线客服</text>
+            <image src="../../img/arrow.png"></image>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,46 @@
+.tabs {
+  display: flex;
+  flex-direction: row;
+}
+.tabs view {
+  flex-grow: 1;
+  text-align: center;
+  line-height: 30px;
+  font-size: 13px;
+}
+.tabs view.show {
+  background: #ccc;
+  color: coral;
+}
+.content {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  animation: leftShow .2s ease-in both;
+  width: 200%;
+}
+
+.content.show {
+  animation: rightShow .2s ease-in both;
+}
+.content image {
+  width: 730rpx;
+}
+
+@keyframes rightShow {
+  from {
+    transform: translate(0)
+  }
+  to {
+    transform: translate(-50%)
+  }
+}
+
+@keyframes leftShow {
+  from {
+    transform: translate(-50%)
+  }
+  to {
+    transform: translate(0)
+  }
+}

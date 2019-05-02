@@ -1,0 +1,26 @@
+/* pages/component/searchBox/index.wxss */
+.top-search-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  padding: 0 10rpx;
+  height: 80rpx;
+  background: #f2f3f4;
+}
+.top-search-container text {
+  color: #E74C3C;
+  font-size: 35rpx;
+  line-height: 35rpx;
+  white-space: nowrap;
+}
+.top-search {
+    transition: width .2s linear;
+    flex: 1;
+    height: 50rpx;
+    background: #ccc url(https://cdn1.iconfinder.com/data/icons/hawcons/32/698627-icon-111-search-512.png) left center / 50rpx no-repeat;
+    border-radius: 10rpx;
+    padding: 0 20rpx 0 60rpx;
+    margin: 0 20rpx;
+}

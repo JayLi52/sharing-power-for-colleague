@@ -1,0 +1,10 @@
+<view class='page'>
+  <view class='tabs' bindtap='tapTabs'>
+    <view class='left {{show ? "" : " show"}}' data-index='left'>如何使用充电宝</view>
+    <view class='right {{show ? " show" : ""}}' data-index='right'>如何归还充电宝</view>
+  </view>
+  <view class='content {{show ? " show" : ""}}'>
+    <image src="../../img/intr1.jpeg" mode="widthFix"></image>
+    <image src="../../img/intr2.jpeg" mode="widthFix"></image>
+  </view>
+</view>

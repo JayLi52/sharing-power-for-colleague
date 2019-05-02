@@ -1,0 +1,41 @@
+/* pages/components/list/index.wxss */
+.charge-box-detail-layout {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border-bottom: 2rpx solid #ccc;
+}
+
+.charge-box-detail-layout > image {
+    flex-basis: 160rpx;
+    height: 160rpx;
+    margin-right: 40rpx;
+}
+
+.charge-box-detail-messages {
+    flex-grow: 1;
+    flex-basis: 600rpx;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.charge-box-detail-message {
+    display: flex;
+    flex-direction: row;
+    margin: 10rpx 0;
+}
+
+.charge-box-detail-message:not(:first-child) {
+    color: #8a8a8a;
+    font-size: 30rpx;
+}
+
+.charge-box-detail-message image {
+    width: 40rpx;
+    height: 40rpx;
+}
+
+.charge-box-detail-message .num {
+    color: #E74C3C;
+}

@@ -1,0 +1,173 @@
+/* 顶层容器 */
+
+.container-layout {
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+/* top内容 */
+
+.top {
+  width: 100%;
+  height: 70rpx;
+  display: flex;
+}
+
+.top-user-avatar {
+  flex-basis: 70rpx;
+  height: 100%;
+}
+
+.top-user-avatar-img {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  margin: 5px;
+}
+
+.top-search {
+  flex-grow: 1;
+  height: 25px;
+  margin: 5px 0;
+  background: #ccc left center / 25px no-repeat;
+  border-radius: 5px;
+  padding-left: 70rpx;
+}
+
+.top-menu {
+  flex-basis: 70rpx;
+}
+
+.top-menu-img {
+  width: 19px;
+  height: 19px;
+  margin: 7px;
+}
+
+/* 地图内容 */
+
+.map-wrapper {
+  width: 100%;
+  position: relative;
+}
+
+.map {
+  height: 100%;
+  width: 100%;
+}
+
+/* 定位icon */
+
+.cover-layout {
+  width: 100rpx;
+  height: 100rpx;
+  position: absolute;
+  bottom: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cover-layout-self-location {
+  left: 0;
+}
+
+.cover-layout-rich-scan {
+  left: 43%;
+}
+
+.cover-layout-custom-service {
+  right: 0;
+}
+
+.self-location, .rich-scan, .custom-service {
+  width: 76rpx;
+  height: 76rpx;
+}
+
+/* 充电柜详细信息 */
+
+.charge-box-detail {
+  background: #fff;
+  position: absolute;
+  width: 760rpx;
+  height: 88px;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  animation: hideDetail 0.2s linear 1 forwards;
+}
+
+.charge-box-detail.show-detail {
+  animation: showDetail 0.2s linear 1 forwards;
+}
+
+@keyframes showDetail {
+  from {
+    transform: translate(-50%, 0%);
+  }
+
+  to {
+    transform: translate(-50%, -100%);
+  }
+}
+
+@keyframes hideDetail {
+  from {
+    transform: translate(-50%, -100%);
+  }
+
+  to {
+    transform: translate(-50%, 0%);
+  }
+}
+
+.charge-box-detail-messages {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.charge-box-detail-message {
+  display: flex;
+  flex-direction: row;
+  margin: 10rpx 0 10rpx 10rpx;
+  align-items: center;
+}
+
+.charge-box-detail-message:not(:first-child) {
+  color: #8a8a8a;
+  font-size: 30rpx;
+}
+
+.charge-box-detail-message cover-image {
+  width: 30rpx;
+  height: 30rpx;
+  margin: 5rpx;
+}
+
+.charge-box-detail-message .text {
+  display: flex;
+  flex-direction: row;
+}
+
+.charge-box-detail-message .text .num {
+  color: #e74c3c;
+}
+
+.go-there {
+  position: absolute;
+  top: 30rpx;
+  right: 30rpx;
+  height: 120rpx;
+  width: 120rpx;
+  font-size: 24rpx;
+  text-align: center;
+}
+
+.go-there cover-image {
+  width: 60%;
+  height: 60%;
+  margin: auto;
+}

@@ -1,0 +1,20 @@
+<!--pages/components/list/index.wxml-->
+<view>
+  <view wx:for="{{detailItems}}" wx:key="{{item}}" class="charge-box-detail-layout">
+    <image src="{{item.img}}"></image>
+    <view class="charge-box-detail-messages">
+      <view class="charge-box-detail-message">
+        <view class="text">{{item.title}}</view>
+      </view>
+      <view class="charge-box-detail-message">
+        <view class="text">距{{item._distance}}米 | {{item.address}}</view>
+      </view>
+      <view class="charge-box-detail-message">
+        <view class="text">
+          <text class="num">{{item.borrow}}</text> 台可借 |
+          <text class="num">{{item.returnNum}}</text> 台待还
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

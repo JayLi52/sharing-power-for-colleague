@@ -1,0 +1,22 @@
+{
+  "pages": [
+    "pages/search/search",
+    "pages/index/index",
+    "pages/question/question",
+    "pages/boxes/boxes",
+    "pages/introduction/introduction",
+    "pages/personal/person"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "开发学习"
+    }
+  },
+  "sitemapLocation": "sitemap.json"
+}
