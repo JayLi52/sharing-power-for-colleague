@@ -1,5 +1,5 @@
 <view>
-  <search-box fireSearch="{{fireSearch}}"></search-box>
+  <search-box></search-box>
   <view class="search-recommend">
     <text>搜索推荐</text>
     <view class="search-recommend-items">
@@ -8,9 +8,9 @@
   </view>
   <view class="search-history">
     <text>历史搜索</text>
-    <view class="rubbish">待画图片</view>
+    <image src="../../img/rubbish.png" class="rubbish" bindtap="clearHistory"></image>
     <view class="search-history-items">
-      <text wx:for="{{historys}}" class="search-history-item">{{item}}</text>
+      <text wx:for="{{history}}" class="search-history-item">{{item}}</text>
     </view>
   </view>
 </view>

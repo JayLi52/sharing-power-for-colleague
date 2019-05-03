@@ -8,6 +8,8 @@
 .search-history > text, .search-recommend > text {
     margin: 0 0 20rpx 30rpx;
     display: inline-block;
+    text-overflow:ellipsis;
+    word-break: keep-all;
 }
 
 .search-recommend-item, .search-history-item {
@@ -19,7 +21,8 @@
     border-radius: 6rpx;
 }
 .rubbish {
-  background: url(../../img/q.png) center / 100% no-repeat;
-  width: 50rpx;
-  height: 50rpx;
-}
+    width:30rpx;
+    height:30rpx;
+    float:right;
+    margin-right:30rpx;
+}    

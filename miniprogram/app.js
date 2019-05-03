@@ -40,6 +40,16 @@ App({
         traceUser: true,
       })
     }
+    // 请求地理位置
+    wx.getLocation({
+      type: 'gcj02',
+      success: res => {
+        this.globalData.location = {
+          latitude: res.latitude,
+          longitude: res.longitude
+        }
+      },
+    })
   },
   globalData: {
     userInfo: null

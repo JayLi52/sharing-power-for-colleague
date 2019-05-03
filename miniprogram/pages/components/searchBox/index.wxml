@@ -1,6 +1,6 @@
 <!--pages/component/searchBox/index.wxml-->
 <view class="top-search-container">
   <input class="top-search" bindfocus="searchFocus" bindblur="searchBlur" bindinput="searchChange" placeholder="酒店/地址/商圈"></input>
-  <text style="{{!showCancel && 'display: none;'}}">取消</text>
+  <text style="{{!showCancel && 'display: none;'}}" bindtap="cancel">取消</text>
 </view>
 <box-list detailItems="{{detailItems}}"></box-list>

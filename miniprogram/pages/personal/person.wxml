@@ -19,7 +19,7 @@
             <image src="../../img/arrow.png"></image>
         </view>
         <view class="service-online message">
-            <image src="../../img/custom-service.png"></image>
+            <image src="../../img/service.png"></image>
             <text>在线客服</text>
             <image src="../../img/arrow.png"></image>
         </view>

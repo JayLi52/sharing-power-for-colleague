@@ -130,6 +130,10 @@ Page({
           latitude: res.latitude,
           longitude: res.longitude,
         })
+        app.globalData.location = {
+          latitude: res.latitude,
+          longitude: res.longitude
+        }
         that.moveTolocation();
       },
     })
@@ -140,17 +144,11 @@ Page({
   },
   // 充电柜地图定位 callback
   bindMakertap: function(e) {
-    console.log(e)
-    // 通过e.markerId 从后端获取该定位点相关信息
     //TODO: 选中时的marker 增加hover样式
-
     let curItem = null
     this.data.markers.forEach(item => {
       if (item.id === e.markerId) {
         curItem = {
-          // name: item.name,
-          distance: '426m',
-          detail: 'item.detail',
           borrow: item.count - item.returnNum,
           returnNum: item.returnNum,
           location: {
@@ -158,6 +156,44 @@ Page({
             longitude: item.longitude
           }
         }
+      }
+    })
+
+    // curItem.location
+    const query = `${curItem.location.latitude},${curItem.location.longitude}`
+    // 根据location 逆地址解析
+    wx.request({
+      url: 'https://apis.map.qq.com/ws/geocoder/v1/?location='+query,
+      data: {
+        key: 'O67BZ-I2X3X-YTY4Z-ZJHDT-YV3XZ-C2B3Z'
+      },
+      success: res => {
+        console.log(res)
+        curItem.name = res.data.result.formatted_addresses.recommend
+        curItem.detail = res.data.result.address
+        this.setData({
+          item: curItem
+        })
+      }
+    })
+
+    const fromLocation = `${this.data.latitude},${this.data.longitude}`
+    const toLocation = query
+    // 计算from-to的distance
+    wx.request({
+      url: 'https://apis.map.qq.com/ws/distance/v1/?parameters',
+      data: {
+        mode: 'driving', // driving:驾车 walking:步行
+        from: fromLocation,
+        to: toLocation,
+        key: 'O67BZ-I2X3X-YTY4Z-ZJHDT-YV3XZ-C2B3Z'
+      },
+      success: res => {
+        console.log(res)
+        curItem.distance = res.data.result.elements[0].distance
+        this.setData({
+          item: curItem
+        })
       }
     })
 
@@ -249,10 +285,10 @@ Page({
   },
   // 到这去
   tapGoThere: function() {
-    const {longitude, latitude} = this.data.item.location
+    const {longtitude, latitude} = this.data.item.location
     wx.openLocation({
       latitude,
-      longitude,
+      longitude: longtitude,
       scale: defaultScale,
     })
   }
