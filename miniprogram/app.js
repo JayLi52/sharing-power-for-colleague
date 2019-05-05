@@ -1,6 +1,6 @@
 //app.js
 App({
-  onLaunch: function () {
+  onLaunch() {
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
@@ -50,6 +50,26 @@ App({
         }
       },
     })
+    // 场景处理
+    // const res = wx.getLaunchOptionsSync()
+    // if (res.scene === 1011) {
+    //   setTimeout(() => {
+    //     wx.navigateTo({
+    //       url: 'pages/search/search',
+    //     })
+    //   }, 1000)
+    // }
+  },
+  onShow() {
+    // 场景处理
+    // const res = wx.getLaunchOptionsSync()
+    // if (res.scene === 1011) {
+    //   setTimeout(() => {
+    //     wx.navigateTo({
+    //       url: 'pages/search/search',
+    //     })
+    //   }, 1000)
+    // }
   },
   globalData: {
     userInfo: null

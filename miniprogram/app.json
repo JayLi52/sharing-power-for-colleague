@@ -5,7 +5,8 @@
     "pages/question/question",
     "pages/boxes/boxes",
     "pages/introduction/introduction",
-    "pages/personal/person"
+    "pages/personal/person",
+    "pages/order/order"
   ],
   "window": {
     "backgroundTextStyle": "light",
