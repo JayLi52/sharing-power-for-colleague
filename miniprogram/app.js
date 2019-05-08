@@ -12,6 +12,7 @@ App({
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
       }
     })
+    
     // 获取用户信息
     wx.getSetting({
       success: res => {
@@ -40,6 +41,23 @@ App({
         traceUser: true,
       })
     }
+
+    wx.cloud.callFunction({
+      name: 'getOpenId',
+      complete: res => {
+        console.log('云函数获取到的openid: ', res.result.openId)
+        var openid = res.result.openId;
+        this.globalData.openid = openid
+      }
+    })
+
+    wx.cloud.callFunction({
+      name: 'getAccessToken',
+      complete: res => {
+        // debugger
+        this.globalData.actoken = JSON.parse(res.result.body)
+      }
+    })
     // 请求地理位置
     wx.getLocation({
       type: 'gcj02',

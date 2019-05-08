@@ -19,7 +19,7 @@ const debounce = function(fn, delay = 1000) {
   let timer;
 
   // 返回一个函数，这个函数会在一个时间区间结束后的 delay 毫秒时执行 func 函数
-  return function () {
+  return function() {
 
     // 保存函数调用时的上下文和参数，传递给func
     var args = arguments
@@ -29,13 +29,42 @@ const debounce = function(fn, delay = 1000) {
 
     // 当返回的函数被最后一次调用后（也就是用户停止了某个连续的操作），
     // 再过 delay 毫秒就执行 func
-    timer = setTimeout(function () {
+    timer = setTimeout(function() {
       fn.apply(null, args);
     }, delay);
   }
 }
 
+const urlParse = function(url) {
+  const origin = url.split("?")[0];
+  const queryObj = {}
+  const query = url.split("?")[1];
+  const queryArr = query.split("&");
+  queryArr.forEach(function(item) {
+    const value = item.split("=")[1];
+    const key = item.split("=")[0];
+    queryObj[key] = value;
+  });
+  return {
+    origin,
+    queryObj,
+    query
+  };
+}
+
+const objToParam = function(obj) {
+  let params = ''
+  Object.keys(obj).forEach(key => {
+    let res = ''
+    res += `${key}=${obj[key]}&`
+    params += res
+  })
+  return params
+}
+
 module.exports = {
   formatTime: formatTime,
-  debounce
+  debounce,
+  urlParse,
+  objToParam
 }

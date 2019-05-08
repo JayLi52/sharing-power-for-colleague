@@ -6,13 +6,17 @@
 		"es6": true,
 		"postcss": true,
 		"minified": true,
-		"newFeature": true
+		"newFeature": true,
+		"autoAudits": false,
+		"checkInvalidKey": true,
+		"nodeModules": true
 	},
 	"appid": "wxb06b5e4b0d872672",
 	"projectname": "%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1%2B%E5%90%8E%E7%AB%AF",
 	"libVersion": "2.2.5",
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
+	"compileType": "miniprogram",
 	"condition": {
 		"search": {
 			"current": -1,
@@ -30,18 +34,19 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
+			"current": 0,
 			"list": [
 				{
-					"id": -1,
+					"id": 0,
 					"name": "db guide",
-					"pathName": "pages/databaseGuide/databaseGuide",
-					"query": ""
+					"pathName": "pages/order/order-second",
+					"query": "boxid=1",
+					"scene": null
 				},
 				{
 					"id": 1,
 					"name": "扫码进入",
-					"pathName": "pages/order/order",
+					"pathName": "pages/order/order-first",
 					"query": "",
 					"scene": 1011
 				}

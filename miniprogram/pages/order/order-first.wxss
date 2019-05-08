@@ -1,0 +1,12 @@
+/* miniprogram/pages/order/order.wxss */
+image {
+  width: 760rpx;
+  height: 700rpx;
+}
+.first-step button {
+  width: 600rpx;
+  margin: 100rpx auto;
+  background-color: #E74C3C;
+  border-radius: 30rpx;
+  color: white;
+}

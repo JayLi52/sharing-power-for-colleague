@@ -1,0 +1,55 @@
+/* miniprogram/pages/order/order-third.wxss */
+
+image {
+  width: 760rpx;
+  height: 700rpx;
+}
+
+.messages {
+  display: flex;
+  flex-direction: column;
+  height: 400rpx;
+  justify-content: center;
+  align-items: center;
+  background-color: #EAEDED;
+}
+.message {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 10rpx 0;
+  font-size: 30rpx;
+}
+.message text:first-child {
+  color: #797D7F;
+}
+
+view.message:first-child text:last-child{
+  color: #e74c3c;
+}
+
+.tip {
+  margin: 20rpx 0;
+}
+
+.tip view:first-child {
+  font-size: 22rpx;
+  text-align: center;
+}
+.tip view:last-child {
+  font-size: 20rpx;
+  text-align: center;
+  color: #797D7F;
+}
+
+.give-back {
+  color: #e74c3c;
+  font-size: 21rpx;
+  text-align: center;
+  line-height: 21rpx;
+}
+
+.give-back image {
+  width: 21rpx;
+  height: 21rpx;
+}

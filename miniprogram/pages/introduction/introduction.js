@@ -15,5 +15,13 @@ Page({
     this.setData({
       show
     })
+  },
+  onLoad(options) {
+    if(options.type && options.type === 'giveback') {
+      console.log('give back')
+      this.setData({
+        show: true
+      })
+    }
   }
 })

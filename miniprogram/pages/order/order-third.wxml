@@ -1,0 +1,25 @@
+<view class="third-step">
+  <image src="../../img/order-third.jpeg"></image>
+  <view class="messages">
+    <view class="message">
+      <text>押金金额：</text>
+      <text>{{message.pledge}}</text>
+    </view>
+    <view class="message">
+      <text>借出时间：</text>
+      <text>{{message.borrowTime}}</text>
+    </view>
+    <view class="message">
+      <text>所属位置：</text>
+      <text>{{message.address}}</text>
+    </view>
+  </view>
+  <view class="tip">
+    <view>请记得归还你的充电宝哦，以免影响您的信用</view>
+    <view>10分钟内免费，每小时1元，24小时10元封顶</view>
+  </view>
+  <view class="give-back" bindtap="howToGiveBack">
+    <image src="../../img/tip-icon.png"></image>
+    如何归还
+  </view>
+</view>

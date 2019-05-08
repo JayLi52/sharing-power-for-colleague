@@ -6,7 +6,9 @@
     "pages/boxes/boxes",
     "pages/introduction/introduction",
     "pages/personal/person",
-    "pages/order/order"
+    "pages/order/order-first",
+    "pages/order/order-second",
+    "pages/order/order-third"
   ],
   "window": {
     "backgroundTextStyle": "light",

@@ -1,0 +1,5 @@
+<!--miniprogram/pages/order/order-second.wxml-->
+<view class="second-step">
+  <image src="../../img/order-second.jpeg"></image>
+  <canvas canvas-id="circle-progress" id="circle-progress" class='canvas'></canvas>
+</view>

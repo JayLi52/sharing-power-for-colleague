@@ -1,0 +1,10 @@
+/* miniprogram/pages/order/order-second.wxss */
+image {
+  width: 760rpx;
+  height: 700rpx;
+}
+canvas {
+  width: 760rpx;
+  height: 600rpx;
+  display: block !important;
+}

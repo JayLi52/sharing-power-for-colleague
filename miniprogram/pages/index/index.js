@@ -3,6 +3,9 @@
 const app = getApp()
 const defaultScale = 14;
 const mapId = 'myMap'
+import {
+  urlParse
+} from '../../utils/util.js'
 
 Page({
   data: {
@@ -30,7 +33,7 @@ Page({
     },
     isShow: false
   },
-  onLoad: function() {
+  onLoad: function () {
     this.setData({
       isShow: true
     })
@@ -111,7 +114,7 @@ Page({
   /**
    * 回到定位点
    */
-  selfLocationClick: function() {
+  selfLocationClick: function () {
     var that = this;
     //还原默认缩放级别
     that.setData({
@@ -121,11 +124,11 @@ Page({
     that.requestLocation();
   },
   //请求地理位置
-  requestLocation: function() {
+  requestLocation: function () {
     var that = this;
     wx.getLocation({
       type: 'gcj02',
-      success: function(res) {
+      success: function (res) {
         that.setData({
           latitude: res.latitude,
           longitude: res.longitude,
@@ -138,12 +141,12 @@ Page({
       },
     })
   },
-  moveTolocation: function() {
+  moveTolocation: function () {
     var mapCtx = wx.createMapContext(mapId);
     mapCtx.moveToLocation();
   },
   // 充电柜地图定位 callback
-  bindMakertap: function(e) {
+  bindMakertap: function (e) {
     //TODO: 选中时的marker 增加hover样式
     let curItem = null
     this.data.markers.forEach(item => {
@@ -163,7 +166,7 @@ Page({
     const query = `${curItem.location.latitude},${curItem.location.longitude}`
     // 根据location 逆地址解析
     wx.request({
-      url: 'https://apis.map.qq.com/ws/geocoder/v1/?location='+query,
+      url: 'https://apis.map.qq.com/ws/geocoder/v1/?location=' + query,
       data: {
         key: 'O67BZ-I2X3X-YTY4Z-ZJHDT-YV3XZ-C2B3Z'
       },
@@ -203,35 +206,45 @@ Page({
     })
   },
   // 扫一扫
-  richScan: function() {
+  richScan: function () {
     // 
     wx.scanCode({
-      success: function(e) {
+      success: function (e) {
         console.log('s', e)
+        const urlObj = urlParse(e.result)
+        if (urlObj.origin === 'https://wx.qq.com/mp' && urlObj.queryObj.id === '1234') {
+          wx.navigateTo({
+            url: `../order/order-first?${urlObj.query}`
+          })
+        }
       },
-      fail: function(e) {
+      fail: function (e) {
         console.log('f', e)
 
       },
-      complete: function(e) {
+      complete: function (e) {
         console.log('c', e)
 
       }
     })
   },
   // 客服
-  customService: function() {
+  customService: function () {
     wx.showActionSheet({
       itemList: ['常见问题', '使用说明', '在线客服', '电话客服'],
-      success: function(e) {
+      success: function (e) {
         console.log('s', e)
         switch (e.tapIndex) {
           case 0: {
-            wx.navigateTo({url: '/pages/question/question'})
+            wx.navigateTo({
+              url: '/pages/question/question'
+            })
             break;
           }
           case 1: {
-            wx.navigateTo({url: '/pages/introduction/introduction'})
+            wx.navigateTo({
+              url: '/pages/introduction/introduction'
+            })
             break
           }
           case 2: {
@@ -245,47 +258,50 @@ Page({
           }
         }
       },
-      fail: function(e) {
+      fail: function (e) {
         console.log('f', e)
       },
-      complete: function(e) {
+      complete: function (e) {
         console.log('c', e)
 
       }
     })
   },
   // 点击地图空白处
-  bindMapTap: function() {
+  bindMapTap: function () {
     console.log('click map')
     this.setData({
       isShow: false
     })
   },
   // 点击输入框
-  bindInputTap: function(e) {
+  bindInputTap: function (e) {
     console.log('点击输入框', e)
   },
   // 个人页面
-  goPersonal: function() {
+  goPersonal: function () {
     wx.navigateTo({
       url: '/pages/personal/person'
     })
   },
   // 箱柜详情页面
-  goBoxes: function() {
+  goBoxes: function () {
     wx.navigateTo({
       url: '/pages/boxes/boxes'
     })
   },
   // search页面
-  goSearch: function() {
+  goSearch: function () {
     wx.navigateTo({
       url: '/pages/search/search'
     })
   },
   // 到这去
-  tapGoThere: function() {
-    const {longtitude, latitude} = this.data.item.location
+  tapGoThere: function () {
+    const {
+      longtitude,
+      latitude
+    } = this.data.item.location
     wx.openLocation({
       latitude,
       longitude: longtitude,
