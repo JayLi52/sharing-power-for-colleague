@@ -1,4 +1,4 @@
-// miniprogram/pages/order/order-third.js
+// miniprogram/pages/personal/orderList.js
 const app = getApp()
 Page({
 
@@ -6,40 +6,22 @@ Page({
    * 页面的初始数据
    */
   data: {
-    message: {
-      pledge: '免押金',
-      borrowTime: '',
-      address: ''
-    }
-  },
-  howToGiveBack() {
-    wx.navigateTo({
-      url: '/pages/introduction/introduction?type=giveback',
-    })
+    list: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    console.log('third options', options)
-    this.setData({
-      message: {
-        pledge: '免押金',
-        ...options
-      }
-    })
-    // 生成订单
-    const actoken = wx.getStorageSync('actoken')['access_token']
     wx.cloud.callFunction({
-      name: 'generateOrder',
+      name: 'getOrders',
       data: {
-        ...options,
-        openid: app.globalData.openid,
-        actoken: actoken
-      }
+        openid: app.globalData.openid
+      },
     }).then(res => {
-      console.log(res)
+      this.setData({
+        list: res.result.data
+      })
     })
   },
 

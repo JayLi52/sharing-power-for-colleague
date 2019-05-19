@@ -18,7 +18,7 @@ image {
   flex-direction: row;
   justify-content: space-between;
   margin: 10rpx 0;
-  font-size: 30rpx;
+  font-size: 25rpx;
 }
 .message text:first-child {
   color: #797D7F;

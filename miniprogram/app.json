@@ -8,7 +8,9 @@
     "pages/personal/person",
     "pages/order/order-first",
     "pages/order/order-second",
-    "pages/order/order-third"
+    "pages/order/order-third",
+    "pages/order/order-forth",
+    "pages/personal/orderList"
   ],
   "window": {
     "backgroundTextStyle": "light",

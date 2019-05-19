@@ -7,13 +7,13 @@ cloud.init()
 exports.main = async (event, context) => {
 
   const { location } = event
-  const longtitude = parseFloat(location.longtitude)
+  const longitude = parseFloat(location.longitude)
   const latitude = parseFloat(location.latitude)
-  console.log(longtitude, latitude)
+  console.log(longitude, latitude)
   const db = cloud.database()
   // const {command: _} = db
   // const res = await db.collection('boxes').where({
-  //     'location.longtitude': _.gt(longtitude - 0.3).and(_.lt(longtitude + 0.3)),
+  //     'location.longitude': _.gt(longitude - 0.3).and(_.lt(longitude + 0.3)),
   //     'location.latitude': _.gt(latitude - 0.3).and(_.lt(latitude + 0.3))
   // }).get()
 

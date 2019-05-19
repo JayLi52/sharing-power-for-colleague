@@ -1,16 +1,16 @@
 <view>
-  <search-box></search-box>
+  <search-box id="search-box"></search-box>
   <view class="search-recommend">
     <text>搜索推荐</text>
     <view class="search-recommend-items">
-      <text wx:for="{{recommends}}" class="search-recommend-item">{{item}}</text>
+      <text wx:for="{{recommends}}" bindtap="tapRecommendText" class="search-recommend-item" data-text="{{item}}">{{item}}</text>
     </view>
   </view>
   <view class="search-history">
     <text>历史搜索</text>
     <image src="../../img/rubbish.png" class="rubbish" bindtap="clearHistory"></image>
     <view class="search-history-items">
-      <text wx:for="{{history}}" class="search-history-item">{{item}}</text>
+      <text wx:for="{{history}}" class="search-history-item" bindtap="tapRecommendText" data-text="{{item}}">{{item}}</text>
     </view>
   </view>
 </view>

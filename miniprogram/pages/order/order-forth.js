@@ -1,34 +1,18 @@
 // miniprogram/pages/order/order.js
-import {objToParam} from '../../utils/util.js'
-const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    options: {}
-  },
-  borrowNoPledge(e) {
-    // 完成第一步
-    // toSecondStep()
-    const options = Object.assign({}, this.data.options, {
-      formid: e.detail.formId
-    })
 
-    const params = objToParam(options)
-    wx.navigateTo({
-      url: './order-second?' + params,
-    })
   },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options)
-    this.setData({
-      options
-    })
+
   },
 
   /**
@@ -78,9 +62,5 @@ Page({
    */
   onShareAppMessage: function () {
 
-  },
-  // 获取模板 Id
-  formSubmit(e) {
-    app.globalData.formId = e.detail.formId
   }
 })

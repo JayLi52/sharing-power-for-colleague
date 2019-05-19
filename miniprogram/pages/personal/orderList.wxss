@@ -1,0 +1,21 @@
+/* miniprogram/pages/personal/orderList.wxss */
+view.list {
+  display: flex;
+  flex-direction: column;
+  padding: 20rpx 30rpx;
+}
+view.item {
+  display: flex;
+  flex-direction: row;
+  font-size: 25rpx;
+}
+
+view.item text {
+  color: rgb(129, 122, 122);
+  font-size: 25rpx;
+  margin-right: 20rpx;
+}
+
+text.title {
+  color: rgb(129, 122, 122);
+}

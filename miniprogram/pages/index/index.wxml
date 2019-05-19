@@ -4,7 +4,7 @@
     <view class="top-user-avatar" bindtap="goPersonal">
       <image class="top-user-avatar-img" src="{{userInfo.avatarUrl}}"></image>
     </view>
-    <input class="top-search" placeholder="酒店/地址/商圈" bindtap="goSearch" disabled></input>
+    <input class="top-search" placeholder="丹青/锦绣" bindtap="goSearch" disabled></input>
     <view class="top-menu" bindtap="goBoxes">
       <image class="top-menu-img" src="../../img/menu.png"></image>
     </view>
@@ -39,10 +39,8 @@
         <cover-view class="charge-box-detail-message">
           <cover-image class="icon" src="../../img/box.png"></cover-image>
           <cover-view class="text">
-            <cover-view class="num">{{item.borrow}}</cover-view>
-            台可借 |
-            <cover-view class="num" style="padding-left: 10rpx;">{{item.returnNum}}</cover-view>
-            台待还</cover-view>
+            {{item.borrow}}台可借 | {{item.returnNum}}台待还
+          </cover-view>
         </cover-view>
       </cover-view>
       <cover-view class="go-there" bindtap="tapGoThere">

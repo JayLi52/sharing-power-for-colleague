@@ -7,7 +7,7 @@
         <view class="text">{{item.title}}</view>
       </view>
       <view class="charge-box-detail-message">
-        <view class="text">距{{item._distance}}米 | {{item.address}}</view>
+        <view class="text">距{{item.distance}}米 | {{item.address}}</view>
       </view>
       <view class="charge-box-detail-message">
         <view class="text">

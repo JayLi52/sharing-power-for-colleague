@@ -1,6 +1,7 @@
 <!--miniprogram/pages/order/order.wxml-->
 <view class="first-step">
   <image src="../../img/order-first.jpeg"></image>
-  <button class="first" bindtap="borrowNoPledge">免押金借</button>
-  <!-- <button class="second">付押金借</button> -->
+  <form report-submit bindsubmit="borrowNoPledge">
+    <button form-type="submit" class="first">免押金借(免密支付)</button>
+  </form>
 </view>

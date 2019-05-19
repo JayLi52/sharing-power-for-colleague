@@ -41,7 +41,7 @@ Page({
           const date = new Date()
           newOptions = Object.assign({}, options, {
             address: res.data.result.formatted_addresses.recommend,
-            borrowTime: date.toDateString()
+            borrowTime: date.toString()
           })
           params = objToParam(newOptions)
           // this.setData({

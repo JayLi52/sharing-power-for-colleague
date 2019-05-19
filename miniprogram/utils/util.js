@@ -62,9 +62,17 @@ const objToParam = function(obj) {
   return params
 }
 
+const formatDistance = function(distance) {
+  if (distance instanceof String && distance.slice(-1) === 'm') {
+    distance = parseInt(distance.slice(0, -1), 10)
+  }
+  if (distance >= 1000) return (distance / 1000) + 'km'
+  else return distance + 'm'
+}
 module.exports = {
   formatTime: formatTime,
   debounce,
   urlParse,
-  objToParam
+  objToParam,
+  formatDistance
 }

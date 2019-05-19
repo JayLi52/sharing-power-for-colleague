@@ -32,6 +32,7 @@
   height: 25px;
   margin: 5px 0;
   background: #ccc left center / 25px no-repeat;
+  background-image: url(https://cdn1.iconfinder.com/data/icons/hawcons/32/698627-icon-111-search-512.png);
   border-radius: 5px;
   padding-left: 70rpx;
 }
@@ -150,10 +151,6 @@
 .charge-box-detail-message .text {
   display: flex;
   flex-direction: row;
-}
-
-.charge-box-detail-message .text .num {
-  color: #e74c3c;
 }
 
 .go-there {

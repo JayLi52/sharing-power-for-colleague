@@ -1,3 +1,4 @@
+const app = getApp()
 // pages/search/search.js
 Page({
 
@@ -32,7 +33,7 @@ Page({
       name: 'getRecommends',
       data: {
         location: {
-          longtitude: 111,
+          longitude: 111,
           latitude: 23
         }
       },
@@ -52,6 +53,14 @@ Page({
         }
       }))
     )
+  },
+  tapRecommendText(e) {
+    const searchText = e.target.dataset.text ? e.target.dataset.text : ""
+    const context = this.selectComponent("#search-box")
+    const {
+      location
+    } = app.globalData
+    context.searchRequest(searchText, location, context)
   },
   inputFocus() {
     this.setData({

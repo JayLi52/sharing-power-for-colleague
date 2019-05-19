@@ -1,11 +1,14 @@
 // pages/component/searchBox/index.js
 import {
-  debounce
+  debounce,
+  formatDistance
 } from '../../../utils/util.js'
 const app = getApp()
 
 Component({
-
+  properties: {
+    mode: String
+  },
   /**
    * 组件的初始数据
    */
@@ -13,7 +16,14 @@ Component({
     showCancel: false,
     detailItems: []
   },
-
+  attached() {
+    const {
+      location
+    } = app.globalData
+    if (this.data.mode === "recommend") {
+      this.searchRequest("丹青", location, this)
+    }
+  },
   /**
    * 组件的方法列表
    */
@@ -60,7 +70,8 @@ Component({
                 ...item,
                 img: 'https://thumbs.dreamstime.com/z/%E8%A1%97%E6%99%AF%E7%94%BB%E5%9C%A8%E5%8F%B0%E5%8C%97%EF%BC%8C%E5%8F%B0%E6%B9%BE%EF%BC%8C%E4%B8%AD%E5%9B%BD-117183333.jpg',
                 borrow: parseInt(Math.random() * 10),
-                returnNum: parseInt(Math.random() * 10)
+                returnNum: parseInt(Math.random() * 10),
+                distance: formatDistance(item._distance)
               }))
             })
           }

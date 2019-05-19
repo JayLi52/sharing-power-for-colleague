@@ -48,5 +48,15 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
+  },
+  tapMyOrder() {
+   wx.navigateTo({
+     url: './orderList',
+   })
+  },
+  tapCustomService() {
+    wx.makePhoneCall({
+      phoneNumber: '123456789'
+    })
   }
 })

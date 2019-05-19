@@ -1,0 +1,12 @@
+<!--miniprogram/pages/personal/orderList.wxml-->
+<text class='title'>订单列表</text>
+<view class='list' wx:for="{{list}}" wx:key="{{item}}">
+  <view class='item'>
+    <text>借出时间: </text>{{item.time.borrowTime}}</view>
+  <view class='item'>
+    <text>租借地点: </text>{{item.address}}</view>
+  <view class='item'>
+    <text>订单编号: </text>{{item._id}}</view>
+  <view class='item'>
+    <text>订单状态: </text>{{item.isReturned ? "已完成" : "未完成"}}</view>
+</view>

@@ -50,14 +50,20 @@ App({
         this.globalData.openid = openid
       }
     })
-
-    wx.cloud.callFunction({
-      name: 'getAccessToken',
-      complete: res => {
-        // debugger
-        this.globalData.actoken = JSON.parse(res.result.body)
-      }
-    })
+    // 获取 access_token 若过期 再重新获取
+    const actoke = wx.getStorageSync('actoken')
+    if(actoke && Date.now() < actoke.expireTimes) {
+      console.log('actoken 未过期')
+    } else {
+      wx.cloud.callFunction({
+        name: 'getAccessToken',
+        complete: res => {
+          wx.setStorageSync('actoken', Object.assign({}, JSON.parse(res.result.body), {
+            expireTimes: Date.now() + JSON.parse(res.result.body)['expires_in'] * 1000
+          }))
+        }
+      })
+    }
     // 请求地理位置
     wx.getLocation({
       type: 'gcj02',

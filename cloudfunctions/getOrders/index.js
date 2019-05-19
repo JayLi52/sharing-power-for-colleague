@@ -1,4 +1,3 @@
-// 获取搜索推荐信息 search页面
 // 云函数入口文件
 const cloud = require('wx-server-sdk')
 
@@ -6,11 +5,12 @@ cloud.init()
 
 // 云函数入口函数
 exports.main = async (event, context) => {
-  const db = cloud.database()
   const wxContext = cloud.getWXContext()
-  const boxid = event.boxid;
+  const db = cloud.database()
 
-  return db.collection('boxes').where({
-    id: boxid
+  const res = await db.collection('orders').where({
+    openid: event.openid
   }).get()
+
+  return res
 }
