@@ -42,7 +42,7 @@ view.message:first-child text:last-child{
   color: #797D7F;
 }
 
-.give-back {
+.give-back,.feed-back {
   color: #e74c3c;
   font-size: 21rpx;
   text-align: center;
@@ -50,6 +50,10 @@ view.message:first-child text:last-child{
 }
 
 .give-back image {
+  width: 21rpx;
+  height: 21rpx;
+}
+.feed-back image {
   width: 21rpx;
   height: 21rpx;
 }

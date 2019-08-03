@@ -22,4 +22,9 @@
     <image src="../../img/tip-icon.png"></image>
     如何归还
   </view>
+
+  <view class="feed-back" bindtap="tapFeedBack">
+    <image src="../../img/feed-back.png"></image>
+    已归还，订单状态未更新，我要反馈
+  </view>
 </view>

@@ -22,36 +22,28 @@ Page({
     })
     let params = ''
     let newOptions = null
-    wx.cloud.callFunction({
-      name: 'getMessage',
-      data: {
-        boxid: options.boxid
+    wx.request({
+      url: `http://localhost:3100/v1/box?id=${options.boxid}`,
+      success: res => {
+        const curItem = res.data[0]
+        // curItem.location
+        const query = `${curItem.location.latitude},${curItem.location.longitude}`
+        // 根据location 逆地址解析
+        wx.request({
+          url: 'https://apis.map.qq.com/ws/geocoder/v1/?location=' + query,
+          data: {
+            key: 'O67BZ-I2X3X-YTY4Z-ZJHDT-YV3XZ-C2B3Z'
+          },
+          success: res => {
+            const date = new Date()
+            newOptions = Object.assign({}, options, {
+              address: res.data.result.formatted_addresses.recommend,
+              borrowTime: date.toString()
+            })
+            params = objToParam(newOptions)
+          }
+        })
       }
-    }).then(res => {
-      const curItem = res.result.data[0]
-      // curItem.location
-      const query = `${curItem.location.latitude},${curItem.location.longitude}`
-      // 根据location 逆地址解析
-      wx.request({
-        url: 'https://apis.map.qq.com/ws/geocoder/v1/?location=' + query,
-        data: {
-          key: 'O67BZ-I2X3X-YTY4Z-ZJHDT-YV3XZ-C2B3Z'
-        },
-        success: res => {
-          const date = new Date()
-          newOptions = Object.assign({}, options, {
-            address: res.data.result.formatted_addresses.recommend,
-            borrowTime: date.toString()
-          })
-          params = objToParam(newOptions)
-          // this.setData({
-          //   message: {
-          //     ...this.data.message,
-          //     address: res.data.result.formatted_addresses.recommend
-          //   }
-          // })
-        }
-      })
     })
     this.draw('circle-progress', 40, 1000);
     setTimeout(() => {

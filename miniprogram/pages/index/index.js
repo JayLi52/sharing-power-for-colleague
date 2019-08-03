@@ -23,14 +23,14 @@ Page({
     mapHeight: '300px',
     // 箱柜详情
     item: {
-      name: '青年民宿',
-      distance: '426m',
-      detail: '学清路26号',
+      name: '东北林业大学丹青楼',
+      distance: '16m',
+      detail: '和兴路26号',
       borrow: 5,
       returnNum: 5,
       location: {
-        longitude: 116,
-        latitude: 39.9
+        longitude: 126.6356,
+        latitude: 45.7224
       }
     },
     isShow: false
@@ -68,21 +68,6 @@ Page({
         })
       }
     })
-    // 查询是否有未完成订单
-    wx.cloud.callFunction({
-      name: 'getOrders',
-      data: {
-        openid: app.globalData.openid
-      }
-    }).then(res => {
-      const result = res.result.data
-      if (result.length > 0 && !result[0].isreturned) {
-        console.log(result[0])
-        wx.navigateTo({
-          url: `../order/order-third?boxid=${result[0].boxid}&address=${result[0].address}&borrowTime=${result[0].time.borrowTime}`,
-        })
-      }
-    })
   },
   /**
    * 获取markers
@@ -92,31 +77,24 @@ Page({
       latitude,
       longitude
     } = this.data
-    wx.cloud.callFunction({
-      name: 'getMarkers',
-      data: {
-        location: {
-          longitude,
-          latitude
-        }
+    wx.request({
+      url: 'http://localhost:3100/v1/box',
+      success: res => {
+        const markers = res.data.map((item, index) => ({
+          latitude: item.location.latitude,
+          longitude: item.location.longitude,
+          desc: item.address,
+          iconPath: '../../img/marker-location.png',
+          width: 30,
+          height: 30,
+          id: index + 1,
+          count: item.count,
+          returnNum: item.count - item.remainingNum
+        }))
+        this.setData({
+          markers
+        })
       }
-    }).then(res => {
-      const markers = res.result.data.map((item, index) => ({
-        latitude: item.location.latitude,
-        longitude: item.location.longitude,
-        desc: item.address,
-        iconPath: '../../img/marker-location.png',
-        width: 30,
-        height: 30,
-        id: index + 1,
-        count: item.count,
-        returnNum: item.returnNum
-      }))
-      this.setData({
-        markers
-      })
-    }).catch(err => {
-      console.error(err)
     })
   },
   /**
@@ -316,8 +294,8 @@ Page({
       latitude
     } = this.data.item.location
     wx.openLocation({
-      latitude,
-      longitude,
+      latitude: parseFloat(latitude),
+      longitude: parseFloat(longitude),
       scale: defaultScale,
     })
   }

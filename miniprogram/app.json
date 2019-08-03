@@ -10,7 +10,8 @@
     "pages/order/order-second",
     "pages/order/order-third",
     "pages/order/order-forth",
-    "pages/personal/orderList"
+    "pages/personal/orderList",
+    "pages/personal/feedback"
   ],
   "window": {
     "backgroundTextStyle": "light",

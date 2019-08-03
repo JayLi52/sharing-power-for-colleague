@@ -2,14 +2,14 @@
 	"miniprogramRoot": "miniprogram/",
 	"cloudfunctionRoot": "cloudfunctions/",
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
+		"nodeModules": true,
 		"autoAudits": false,
-		"checkInvalidKey": true,
-		"nodeModules": true
+		"checkInvalidKey": true
 	},
 	"appid": "wxb06b5e4b0d872672",
 	"projectname": "%E6%AF%95%E4%B8%9A%E8%AE%BE%E8%AE%A1%2B%E5%90%8E%E7%AB%AF",
@@ -35,7 +35,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 2,
+			"current": 4,
 			"list": [
 				{
 					"id": 0,
@@ -55,6 +55,20 @@
 					"id": 2,
 					"name": "orderList",
 					"pathName": "pages/personal/orderList",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "personal",
+					"pathName": "pages/personal/person",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "feedback",
+					"pathName": "pages/personal/feedback",
 					"query": "",
 					"scene": null
 				}

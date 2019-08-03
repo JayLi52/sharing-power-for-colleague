@@ -58,5 +58,10 @@ Page({
     wx.makePhoneCall({
       phoneNumber: '123456789'
     })
-  }
+  },
+  tapFeedBack() {
+    wx.navigateTo({
+      url: '/pages/personal/feedback',
+    })
+  },
 })

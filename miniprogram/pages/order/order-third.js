@@ -17,7 +17,11 @@ Page({
       url: '/pages/introduction/introduction?type=giveback',
     })
   },
-
+  tapFeedBack() {
+    wx.navigateTo({
+      url: '/pages/personal/feedback',
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -31,16 +35,28 @@ Page({
     })
     // 生成订单
     const actoken = wx.getStorageSync('actoken')['access_token']
-    wx.cloud.callFunction({
-      name: 'generateOrder',
+    wx.request({
+      url: 'http://localhost:3100/v1/order',
+      method: "GET",
       data: {
-        ...options,
-        openid: app.globalData.openid,
-        actoken: actoken
+        openid: app.globalData.openid
+      },
+      success(res) {
+        (res.data.length === 0 || res.data.every(item => item.isReturned)) && wx.request({
+          url: 'http://localhost:3100/v1/order',
+          method: "POST",
+          data: {
+            ...options,
+            openid: app.globalData.openid,
+            actoken: actoken
+          },
+          success: res => {
+            console.log(res)
+          }
+        })
       }
-    }).then(res => {
-      console.log(res)
     })
+
   },
 
   /**

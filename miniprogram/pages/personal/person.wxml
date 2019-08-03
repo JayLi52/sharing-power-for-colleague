@@ -13,9 +13,9 @@
             <text>我的订单</text>
             <image src="../../img/arrow.png"></image>
         </view>
-        <view class="service-online message" bindtap="tapCustomService">
-            <image src="../../img/service.png"></image>
-            <text>电话客服</text>
+        <view class="service-online message" bindtap="tapFeedBack">
+            <image src="../../img/feedback.png"></image>
+            <text>反馈意见</text>
             <image src="../../img/arrow.png"></image>
         </view>
     </view>

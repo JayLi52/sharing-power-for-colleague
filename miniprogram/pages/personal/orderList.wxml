@@ -9,4 +9,8 @@
     <text>订单编号: </text>{{item._id}}</view>
   <view class='item'>
     <text>订单状态: </text>{{item.isReturned ? "已完成" : "未完成"}}</view>
+    <view class='item'>
+    <text>机柜 ID: </text>{{item.boxid}}</view>
+    <view class='item'>
+    <text>充电宝 ID: </text>{{item.chargerid}}</view>
 </view>

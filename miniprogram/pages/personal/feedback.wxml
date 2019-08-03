@@ -1,0 +1,17 @@
+<!--miniprogram/pages/personal/feedback.wxml-->
+<view class='feedback'>
+  <form bindsubmit="formSubmit" bindreset="formReset">
+    <view class="section__title">反馈信息类型</view>
+    <picker name='feedbackType' bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+      <view class="picker">当前选择：{{array[index]}}
+        <image src='../../img/down.png'></image>
+      </view>
+    </picker>
+    <view class="section__title">反馈内容</view>
+    <textarea name='feedbackContent' value="{{feedbackContent}}" placeholder="请输入反馈内容" />
+    <view class="section__title">订单号（反馈信息类型为异常订单时必填,其余情况禁用）</view>
+    <textarea name='feedbackOrder' disabled="{{orderDisabled}}" value="{{orderId}}" placeholder="请输入订单号" />
+    <button form-type="submit">提交审核</button>
+    <button form-type="reset">清空表单</button>
+  </form>
+</view>

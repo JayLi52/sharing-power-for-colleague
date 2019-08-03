@@ -12,7 +12,7 @@ App({
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
       }
     })
-    
+
     // 获取用户信息
     wx.getSetting({
       success: res => {
@@ -48,11 +48,29 @@ App({
         console.log('云函数获取到的openid: ', res.result.openId)
         var openid = res.result.openId;
         this.globalData.openid = openid
+        // 查询是否有未完成订单
+        wx.request({
+          url: 'http://localhost:3100/v1/order',
+          data: {
+            openid: this.globalData.openid
+          },
+          success: res => {
+            const result = res.data
+            if (result.length > 0 && !result[0].isReturned) {
+              setTimeout(() => {
+                wx.navigateTo({
+                  url: `../order/order-third?boxid=${result[0].boxid}&address=${result[0].address}&borrowTime=${result[0].borrowTime}`,
+                })
+              }, 1000)
+
+            }
+          }
+        })
       }
     })
     // 获取 access_token 若过期 再重新获取
     const actoke = wx.getStorageSync('actoken')
-    if(actoke && Date.now() < actoke.expireTimes) {
+    if (actoke && Date.now() < actoke.expireTimes) {
       console.log('actoken 未过期')
     } else {
       wx.cloud.callFunction({
@@ -74,15 +92,6 @@ App({
         }
       },
     })
-    // 场景处理
-    // const res = wx.getLaunchOptionsSync()
-    // if (res.scene === 1011) {
-    //   setTimeout(() => {
-    //     wx.navigateTo({
-    //       url: 'pages/search/search',
-    //     })
-    //   }, 1000)
-    // }
   },
   onShow() {
     // 场景处理
