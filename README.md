@@ -1,21 +1,13 @@
-# 预览
-可通过微信开发者工具预览
+# 共享充电小程序
 
-<img src="./img/1.jpg" width = 30% height = 30%>
-<img src="./img/2.png" width = 30% height = 30%>
-<img src="./img/3.png" width = 30% height = 30%>
-<img src="./img/4.jpg" width = 30% height = 30%>
+微信小程序的开发主要参考自微信官方文档，除了一些基础的 SDK 能力，还使用了一些媒体能力：地图、图片；数据缓存 localStorage：永久存放与用户相关的历史记录；位置获取务：定位本机所在位置；canvas 画布： 绘制充电宝弹出加载动画等。
 
-
-# 云开发 quickstart
-
-这是云开发的快速启动指引，其中演示了如何上手使用云开发的三大基础能力：
-
-- 数据库：一个既可在小程序前端操作，也能在云函数中读写的 JSON 文档型数据库
-- 文件存储：在小程序前端直接上传/下载云端文件，在云开发控制台可视化管理
-- 云函数：在云端运行的代码，微信私有协议天然鉴权，开发者只需编写业务逻辑代码
-
-## 参考文档
-
-- [云开发文档](https://developers.weixin.qq.com/miniprogram/dev/wxcloud/basis/getting-started.html)
-
+<div style="padding: 20px;background: #36e21630;float: left;">
+    <img src="./img/demo (3).png" width = 30% height = 30%>
+    <img src="./img/demo (4).png" width = 30% height = 30%>
+    <img src="./img/demo (5).png" width = 30% height = 30%>
+    <img src="./img/demo (6).png" width = 30% height = 30%>
+    <img src="./img/demo (1).png" width = 30% height = 30%>
+    <img src="./img/demo (2).png" width = 30% height = 30%>
+    <img src="./img/demo (7).png" width = 30% height = 30%>
+</div>
